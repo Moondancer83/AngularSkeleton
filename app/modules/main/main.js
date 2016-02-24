@@ -2,7 +2,7 @@
 
 var angular = require('angular'); // That's right! We can just require angular as if we were in node
 
-var WelcomeCtrl = require('./controllers/WelcomeCtrl'); // We can use our WelcomeCtrl.js as a module. Rainbows.
+var WelcomeCtrl = require('./../welcome/WelcomeCtrl'); // We can use our WelcomeCtrl.js as a module. Rainbows.
 
 var app = angular.module('myApp', []);
 

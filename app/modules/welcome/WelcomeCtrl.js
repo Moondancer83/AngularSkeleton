@@ -1,7 +1,7 @@
 "use strict";
 
 var WelcomeCtrl = function($scope) {
-  $scope.testVar = 'We are up and running from a required module!';
+  $scope.testVar = 'Custom stucture is running from require module!';
 };
 
 module.exports = WelcomeCtrl;

@@ -37,18 +37,19 @@ gulp.task('clean', function() {
 
 // JSHint task
 gulp.task('lint', function() {
-  gulp.src('app/scripts/*.js')
+  gulp.src('modules/**/*.js')
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
 
 // Styles task
 gulp.task('styles', function() {
-  gulp.src('app/styles/*.scss')
+  gulp.src('app/modules/**/*.scss')
   // The onerror handler prevents Gulp from crashing when you make a mistake in your SASS
   .pipe(sass({onError: function(e) { console.log(e); } }))
   // Optionally add autoprefixer
   .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
+  .pipe(concat('bundle.css'))
   // These last two should look familiar now :)
   .pipe(gulp.dest('dist/css/'));
 });
@@ -56,7 +57,7 @@ gulp.task('styles', function() {
 // Browserify task
 gulp.task('browserify', function() {
   // Single point of entry (make sure not to src ALL your files, browserify will figure it out)
-  gulp.src(['app/scripts/main.js'])
+  gulp.src(['app/modules/main/main.js'])
   .pipe(browserify({
     insertGlobals: true,
     debug: false
@@ -75,7 +76,7 @@ gulp.task('views', function() {
   .pipe(gulp.dest('dist/'));
 
   // Any other view files from app/views
-  gulp.src('app/views/**/*')
+  gulp.src('app/modules/**/*.html')
   // Will be put in the dist/views folder
   .pipe(gulp.dest('dist/views/'));
 });
@@ -87,12 +88,12 @@ gulp.task('watch', ['lint'], function() {
   refresh.listen(livereloadport);
 
   // Watch our scripts, and when they change run lint and browserify
-  gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'],[
+  gulp.watch(['app/modules/**/*.js'],[
     'lint',
     'browserify'
   ]);
   // Watch our sass files
-  gulp.watch(['app/styles/**/*.scss'], [
+  gulp.watch(['app/modules/**/*.scss'], [
     'styles'
   ]);
 
