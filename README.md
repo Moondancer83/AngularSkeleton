@@ -1,0 +1,2 @@
+# AngularSkeleton
+Experimenting AngularJS structures
