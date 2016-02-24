@@ -1,7 +1,7 @@
 # AngularSkeleton
 Experimenting AngularJS structures.
 
-[Used tutorial](http://learninglaravel.net/lets-build-an-angularjs-app-with-browserify-and-gulp/link)
+[Used tutorial](http://learninglaravel.net/lets-build-an-angularjs-app-with-browserify-and-gulp/link) | 
 [Repository](https://github.com/Hyra/angular-gulp-browserify-livereload-boilerplate)
 
 ##Node modules
